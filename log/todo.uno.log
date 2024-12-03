@@ -1,0 +1,7 @@
+eel-lab030-01
+/home/tecparla/lab
+mié 27 nov 2024 18:07:02 CET
+Nom del fitxer de log: /home/tecparla/lab/log/todo.uno.log
+inici del script /home/tecparla/lab/ramses/todo.sh
+parametriza.py -p /home/tecparla/lab/Prm/uno -s /home/tecparla/lab/Sen /home/tecparla/lab/Gui/train.gui /home/tecparla/lab/Gui/devel.gui
+Processing files:   0%|··········| 0/4000 [00:00<?, ?it/s]Processing files:   7%|🚀·········| 286/4000 [00:00<00:01, 2855.56it/s]Processing files:  15%|#🚀········| 619/4000 [00:00<00:01, 3132.18it/s]Processing files:  24%|##········| 955/4000 [00:00<00:00, 3234.53it/s] Processing files:  32%|###·······| 1294/4000 [00:00<00:00, 3292.54it/s]Processing files:  41%|####······| 1630/4000 [00:00<00:00, 3316.58it/s]Processing files:  49%|####🚀·····| 1976/4000 [00:00<00:00, 3361.67it/s]Processing files:  58%|#####🚀····| 2314/4000 [00:00<00:00, 3365.16it/s]Processing files:  66%|######🚀···| 2660/4000 [00:00<00:00, 3393.65it/s]Processing files:  75%|#######🚀··| 3000/4000 [00:00<00:00, 3389.88it/s]Processing files:  84%|########··| 3344/4000 [00:01<00:00, 3403.43it/s] Processing files:  92%|#########·| 3685/4000 [00:01<00:00, 3399.35it/s]Processing files: 100%|##########| 4000/4000 [00:01<00:00, 3348.33it/s]
