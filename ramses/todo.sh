@@ -30,15 +30,40 @@ GUI_DEV=$DIR_GUI/devel.gui
 DIR_SEN=$DIR_WRK/Sen
 DIR_PRM=$DIR_WRK/Prm/$NOM
 DIR_REC=$DIR_WRK/Rec/$Nom
-FIC_MOD=
+DIR_MOD=$DIR_WRK/Mod/$NOM
+
+FIC_MOD=$DIR_WRK/Mod/$NOM.mod
 
 LIS_MOD=$DIR_WRK/Lis/vocales.lis
 
 FIC_RES=$DIR_WRK/Res/$NOM.res
 [ -d $(dirname $FIC_RES) ] || mkdir -p $(dirname $FIC_RES)
 
-EXEC="parametriza.py -p $DIR_PRM -s $DIR_SEN $GUI_ENT $GUI_DEV"
-$PRM && echo $EXEC && $EXEC || exit 1 # && executa la seguent comanda si la primera es true, echo sempre es true per tant si $PRM es true s'executara tot i si $EXEC dona un error fara exit 1
+dirSen="-s $DIR_SEN"
+dirPrm="-p $DIR_PRM"
+
+EXEC="parametriza.py $dirSen $dirPrm $GUI_ENT $GUI_DEV"
+$PRM && { echo $EXEC && $EXEC || exit 1; }  # && executa la seguent comanda si la primera es true, echo sempre es true per tant si $PRM es true s'executara tot i si $EXEC dona un error fara exit 1, sino poses les claus no funcionara ja que el programa petara
+
+dirPrm="-p $DIR_PRM"
+dirMar="-m $DIR_SEN"
+lisMod="-l $LIS_MOD"
+ficMod="-f $FIC_MOD"
+
+EXEC="entrena.py $dirMar $dirPrm $ficMod $lisMod $GUI_ENT"
+$ENT && { echo $EXEC && $EXEC || exit 1; }
+
+dirRec="-r $DIR_REC"
+dirPrm="-p $DIR_PRM"
+ficMod="-f $FIC_MOD"
+
+EXEC="reconoce.py $dirRec $dirPrm $ficMod $GUI_DEV"
+$REC && { echo $EXEC && $EXEC || exit 1; }
+
+dirRec="-r $DIR_REC"
+dirMar="-m $DIR_SEN"
+EXEC="evalua.py $dirRec $dirMar $GUI_DEV"
+$EVA && { echo $EXEC && $EXEC || exit 1; }
 
 
 
