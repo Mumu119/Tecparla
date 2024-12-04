@@ -33,16 +33,25 @@ DIR_REC=$DIR_WRK/Rec/$Nom
 DIR_MOD=$DIR_WRK/Mod/$NOM
 
 FIC_MOD=$DIR_WRK/Mod/$NOM.mod
+[ -d $(dirname $FIC_MOD) ] || mkdir -p $(dirname $FIC_MOD)
 
 LIS_MOD=$DIR_WRK/Lis/vocales.lis
 
 FIC_RES=$DIR_WRK/Res/$NOM.res
 [ -d $(dirname $FIC_RES) ] || mkdir -p $(dirname $FIC_RES)
 
+FUNC_PRM=fft
+EXEC_PRE=$DIR_PRM/$FUNC_PRM.py
+[ -d $(dirname $EXEC_PRE) ] || mkdir -p $(dirname $EXEC_PRE)
+#echo "def $FUNC_PRM(x): return x" | tee $EXEC_PRE ; amb aquesta ordre crees el script previ amb l'opció trivial
+echo "from numpy.fft import fft" | tee $EXEC_PRE 
+
+execPre="-x $EXEC_PRE"
+funcPrm="-f $FUNC_PRM"
 dirSen="-s $DIR_SEN"
 dirPrm="-p $DIR_PRM"
 
-EXEC="parametriza.py $dirSen $dirPrm $GUI_ENT $GUI_DEV"
+EXEC="parametriza.py $dirSen $dirPrm $execPre $funcPrm $GUI_ENT $GUI_DEV"
 $PRM && { echo $EXEC && $EXEC || exit 1; }  # && executa la seguent comanda si la primera es true, echo sempre es true per tant si $PRM es true s'executara tot i si $EXEC dona un error fara exit 1, sino poses les claus no funcionara ja que el programa petara
 
 dirPrm="-p $DIR_PRM"
