@@ -30,14 +30,14 @@ def evalua(dirRec, dirMar,  *guiSen):
     for unidad in sorted(lisPal):
         print(unidad, end='')
         for reconocido in sorted(lisPal):
-            conf = matConf[unidad][reconocido]
+            conf = matConf[unidad][reconocido] if reconocido in matConf[unidad] else 0 # si no hi ha cap canfusió, posa 0 perque no peti
             print(f'\t{conf}', end='')
         print()
 
     correctas = 0
     total = 0 
-    for unidad in sorted(lisPal):
-        for reconocido in sorted(lisPal):
+    for unidad in matConf:
+        for reconocido in matConf[unidad]:
             total += matConf[unidad][reconocido]
             if unidad == reconocido:
                 correctas += matConf[unidad][reconocido]

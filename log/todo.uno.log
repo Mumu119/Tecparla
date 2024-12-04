@@ -1,21 +1,23 @@
 DESKTOP-SQHUUAR
 /home/user1/tecparla/Tecparla
-Wed Dec  4 18:07:52 CET 2024
+Wed Dec  4 18:17:02 CET 2024
 Nom del fitxer de log: /home/user1/tecparla/Tecparla/log/todo.uno.log
 inici del script /home/user1/tecparla/Tecparla/ramses/todo.sh
 from numpy.fft import fft
-parametriza.py -s /home/user1/tecparla/Tecparla/Sen -p /home/user1/tecparla/Tecparla/Prm/uno -x /home/user1/tecparla/Tecparla/Prm/uno/fft.py -f fft /home/user1/tecparla/Tecparla/Gui/train.gui /home/user1/tecparla/Tecparla/Gui/devel.gui
-Processing files:   0%|··········| 0/4000 [00:00<?, ?it/s]Processing files:   8%|🚀·········| 336/4000 [00:00<00:01, 3353.57it/s]Processing files:  18%|#🚀········| 710/4000 [00:00<00:00, 3574.20it/s]Processing files:  27%|##🚀·······| 1083/4000 [00:00<00:00, 3644.60it/s]Processing files:  36%|###🚀······| 1448/4000 [00:00<00:00, 3611.29it/s]Processing files:  45%|####🚀·····| 1810/4000 [00:00<00:00, 3221.96it/s]Processing files:  53%|#####·····| 2139/4000 [00:00<00:00, 3074.86it/s] Processing files:  61%|######····| 2451/4000 [00:00<00:00, 2944.20it/s]Processing files:  69%|######🚀···| 2750/4000 [00:00<00:00, 2955.23it/s]Processing files:  77%|#######🚀··| 3070/4000 [00:00<00:00, 3026.39it/s]Processing files:  86%|########🚀·| 3441/4000 [00:01<00:00, 3225.28it/s]Processing files:  96%|#########🚀| 3839/4000 [00:01<00:00, 3445.83it/s]Processing files: 100%|##########| 4000/4000 [00:01<00:00, 3272.41it/s] 
+def absfft(x): 
+    return abs(fft(x))
+parametriza.py -s /home/user1/tecparla/Tecparla/Sen -p /home/user1/tecparla/Tecparla/Prm/uno -x /home/user1/tecparla/Tecparla/Prm/uno/absfft.py -f absfft /home/user1/tecparla/Tecparla/Gui/train.gui /home/user1/tecparla/Tecparla/Gui/devel.gui
+Processing files:   0%|··········| 0/4000 [00:00<?, ?it/s]Processing files:   9%|🚀·········| 357/4000 [00:00<00:01, 3567.52it/s]Processing files:  18%|#🚀········| 721/4000 [00:00<00:00, 3609.77it/s]Processing files:  27%|##🚀·······| 1098/4000 [00:00<00:00, 3679.18it/s]Processing files:  37%|###🚀······| 1470/4000 [00:00<00:00, 3693.99it/s]Processing files:  46%|####🚀·····| 1840/4000 [00:00<00:00, 3675.26it/s]Processing files:  55%|#####🚀····| 2208/4000 [00:00<00:00, 3606.48it/s]Processing files:  65%|######····| 2590/4000 [00:00<00:00, 3673.14it/s] Processing files:  74%|#######···| 2965/4000 [00:00<00:00, 3694.01it/s]Processing files:  83%|########··| 3335/4000 [00:00<00:00, 3526.24it/s]Processing files:  92%|#########·| 3690/4000 [00:01<00:00, 3433.72it/s]Processing files: 100%|##########| 4000/4000 [00:01<00:00, 3582.85it/s]
 entrena.py -m /home/user1/tecparla/Tecparla/Sen -p /home/user1/tecparla/Tecparla/Prm/uno -f /home/user1/tecparla/Tecparla/Mod/uno.mod -l /home/user1/tecparla/Tecparla/Lis/vocales.lis /home/user1/tecparla/Tecparla/Gui/train.gui
-  0%|----------| 0/2000 [00:00<?, ?it/s] 58%||||||\----| 1161/2000 [00:00<00:00, 11603.70it/s]100%|||||||||||| 2000/2000 [00:00<00:00, 11333.18it/s]
+  0%|----------| 0/2000 [00:00<?, ?it/s] 55%||||||/----| 1098/2000 [00:00<00:00, 10975.72it/s]100%|||||||||||| 2000/2000 [00:00<00:00, 11008.66it/s]
 reconoce.py -r /home/user1/tecparla/Tecparla/Rec/ -p /home/user1/tecparla/Tecparla/Prm/uno -f /home/user1/tecparla/Tecparla/Mod/uno.mod /home/user1/tecparla/Tecparla/Gui/devel.gui
-  0%|          | 0/2000 [00:00<?, ?it/s] 12%|█▏        | 244/2000 [00:00<00:00, 2421.67it/s] 26%|██▌       | 522/2000 [00:00<00:00, 2628.59it/s] 39%|███▉      | 785/2000 [00:00<00:00, 2544.38it/s] 53%|█████▎    | 1051/2000 [00:00<00:00, 2588.99it/s] 66%|██████▌   | 1311/2000 [00:00<00:00, 2344.39it/s] 78%|███████▊  | 1553/2000 [00:00<00:00, 2367.15it/s] 91%|█████████ | 1820/2000 [00:00<00:00, 2460.97it/s]100%|██████████| 2000/2000 [00:00<00:00, 2484.08it/s]
+  0%|          | 0/2000 [00:00<?, ?it/s] 11%|█▏        | 227/2000 [00:00<00:00, 2262.98it/s] 23%|██▎       | 461/2000 [00:00<00:00, 2306.24it/s] 36%|███▋      | 725/2000 [00:00<00:00, 2455.79it/s] 49%|████▊     | 971/2000 [00:00<00:00, 2421.82it/s] 61%|██████    | 1214/2000 [00:00<00:00, 2344.04it/s] 72%|███████▏  | 1449/2000 [00:00<00:00, 2229.78it/s] 84%|████████▍ | 1684/2000 [00:00<00:00, 2266.93it/s] 98%|█████████▊| 1964/2000 [00:00<00:00, 2430.26it/s]100%|██████████| 2000/2000 [00:00<00:00, 2371.77it/s]
 evalua.py -r /home/user1/tecparla/Tecparla/Rec/ -m /home/user1/tecparla/Tecparla/Sen /home/user1/tecparla/Tecparla/Gui/devel.gui
-  0%|----------| 0/2000 [00:00<?, ?it/s]100%|||||||||||| 2000/2000 [00:00<00:00, 37068.04it/s]
+  0%|----------| 0/2000 [00:00<?, ?it/s]100%|||||||||||| 2000/2000 [00:00<00:00, 34838.29it/s]
 	a	e	i	o	u
-a	105	85	74	77	59
-e	61	99	85	48	107
-i	69	79	107	21	124
-o	60	100	66	68	106
-u	50	106	98	43	103
-Precisió = 24.10%
+a	370	3	1	23	3
+e	19	298	20	31	32
+i	0	31	320	1	48
+o	61	16	2	284	37
+u	8	8	21	61	302
+Precisió = 78.70%

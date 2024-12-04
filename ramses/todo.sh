@@ -40,11 +40,13 @@ LIS_MOD=$DIR_WRK/Lis/vocales.lis
 FIC_RES=$DIR_WRK/Res/$NOM.res
 [ -d $(dirname $FIC_RES) ] || mkdir -p $(dirname $FIC_RES)
 
-FUNC_PRM=fft
+FUNC_PRM=absfft
 EXEC_PRE=$DIR_PRM/$FUNC_PRM.py
 [ -d $(dirname $EXEC_PRE) ] || mkdir -p $(dirname $EXEC_PRE)
 #echo "def $FUNC_PRM(x): return x" | tee $EXEC_PRE ; amb aquesta ordre crees el script previ amb l'opció trivial
-echo "from numpy.fft import fft" | tee $EXEC_PRE 
+echo "from numpy.fft import fft" | tee $EXEC_PRE
+echo "def $FUNC_PRM(x): " | tee -a $EXEC_PRE
+echo "    return abs(fft(x))" | tee -a $EXEC_PRE  
 
 execPre="-x $EXEC_PRE"
 funcPrm="-f $FUNC_PRM"
