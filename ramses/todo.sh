@@ -62,6 +62,7 @@ $REC && { echo $EXEC && $EXEC || exit 1; }
 
 dirRec="-r $DIR_REC"
 dirMar="-m $DIR_SEN"
+
 EXEC="evalua.py $dirRec $dirMar $GUI_DEV"
 $EVA && { echo $EXEC && $EXEC || exit 1; }
 
