@@ -33,7 +33,7 @@ def entrena(dirPrm, dirMar, lisFon, ficMod, *figGui):
         unidad = cogeTRN(pathMar)
         pathPrm = pathName(dirPrm, senyal, 'prm')
         prm = leePrm(pathPrm)
-        modelo.addPrm(prm, unidad)
+        modelo.___add___(prm, unidad)
     # RECALCULEM el model
     modelo.recaMod()
     # MOSTREM per pantalla la "evolució" del entrenament

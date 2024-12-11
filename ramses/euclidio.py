@@ -19,14 +19,14 @@ class Euclidi:
     def recaMod(self):
         distancia = 0 
         for unidad in self.unidades: 
-            self.modelo[unidad]= self.total[unidad / self.numFon[unidad]]
+            self.modelo[unidad]= self.total[unidad] / self.numFon[unidad]
             distancia += (self.total2[unidad] / self.numFon[unidad] - self.modelo[unidad] ** 2)
         self.distancia = np.sum(distancia) ** 0.5 
 
     def printEvo(self):
         print(f'{self.distancia = :.2f}')
 
-    def escMpd(self, ficMod):
+    def escMod(self, ficMod):
         chkPathName(ficMod)
         with open(ficMod, 'wb') as fpMod:
             np.save(fpMod, self.modelo)
