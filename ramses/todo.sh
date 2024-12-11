@@ -18,7 +18,7 @@ date
 echo "Nom del fitxer de log: $FIC_LOG"
 echo "inici del script $0"
 
-PRM=true
+PRM=false
 ENT=true
 REC=true
 EVA=true
@@ -40,13 +40,15 @@ LIS_MOD=$DIR_WRK/Lis/vocales.lis
 FIC_RES=$DIR_WRK/Res/$NOM.res
 [ -d $(dirname $FIC_RES) ] || mkdir -p $(dirname $FIC_RES)
 
-FUNC_PRM=absfft
+NUM_COEF=32
+EPS=10
+FUNC_PRM=mfcc
 EXEC_PRE=$DIR_PRM/$FUNC_PRM.py
 [ -d $(dirname $EXEC_PRE) ] || mkdir -p $(dirname $EXEC_PRE)
-#echo "def $FUNC_PRM(x): return x" | tee $EXEC_PRE ; amb aquesta ordre crees el script previ amb l'opció trivial
-echo "from numpy.fft import fft" | tee $EXEC_PRE
-echo "def $FUNC_PRM(x): " | tee -a $EXEC_PRE
-echo "    return abs(fft(x))" | tee -a $EXEC_PRE  
+# echo "def $FUNC_PRM(x): return x" | tee $EXEC_PRE ; amb aquesta ordre crees el script previ amb l'opció trivial
+echo "from python_speech_features import mfcc" | tee $EXEC_PRE
+# echo "def $FUNC_PRM(x): " | tee -a $EXEC_PRE
+# echo "return abs(fft(x))" | tee -a $EXEC_PRE 
 
 execPre="-x $EXEC_PRE"
 funcPrm="-f $FUNC_PRM"

@@ -11,7 +11,7 @@ from tqdm import tqdm as tqdm # progress bar
 
 def parametriza(dirPrm, dirSen, *guiSen, funcPrm=np.array): # *guiSen es una tupla, et longitud variable i sempre s'ha de posar al final, a no ser que inicialitzizis els parametres
     ficheros = leeLis(*guiSen) # sense estarisc li passeries la llista com a un sol valor amb l'esterisc passa cada element com a un valor separat
-    for fichero in tqdm(ficheros, ascii="·🚀#", desc="Processing files"): #🚀
+    for fichero in tqdm(ficheros, ascii="_🚀^", desc="Processing files"): #🚀
         pathSen = pathName(dirSen, fichero, 'wav')
         sen, fm  = sf.read(pathSen)
         prm = funcPrm(sen)

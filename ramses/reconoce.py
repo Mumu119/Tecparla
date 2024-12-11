@@ -16,7 +16,7 @@ def reconoce(dirRec, dirPrm, ficMod, *guiSen):
         prm = leePrm(pathPrm)
         minDist = np.inf 
         for unidad in modelos:
-            distancia = sum((prm - modelos[unidad]) ** 2) # Calcula la distancia euclidiana entre el prm i el model
+            distancia = np.sum((prm - modelos[unidad]) ** 2) # Calcula la distancia euclidiana entre el prm i el model
             if distancia < minDist:
                 minDist = distancia
                 reconocida = unidad

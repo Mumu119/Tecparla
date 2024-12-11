@@ -6,24 +6,40 @@ from util import *
 from prm import *
 from mar import *
 from tqdm import tqdm
+from euclidio import Euclidi
+
+# porto l'escut al pit
+# em protegeix el cor
+# porto l'escut al pit
+# el meu tresor
+
+# puta egara
+# puta egara
+# e
+# e
+
+# sabadell sabadell
+# sabadell sabadell
 
 def entrena(dirPrm, dirMar, lisFon, ficMod, *figGui):
-    unidades = leeLis(lisFon)
-    total = {unidad : 0 for unidad in unidades} #crea el diccionari amb les vocals i els valors a 0
-    numFon = {unidad : 0 for unidad in unidades}
-    modelo = {}
+    # CONSTRUIM el model inicial.
+    modelo = Euclidi(lisFon)
+    # INICIALITZEM els diccionaris
+    modelo.inicMod()
+
+    # bucle per totes les senyals
     for senyal in tqdm(leeLis(*figGui), ascii="-/|\|"):
         pathMar = pathName(dirMar, senyal, 'mar')
         unidad = cogeTRN(pathMar)
         pathPrm = pathName(dirPrm, senyal, 'prm')
         prm = leePrm(pathPrm)
-        total[unidad] += prm
-        numFon[unidad] += 1
-    for unidad in unidades:
-        modelo[unidad] = total[unidad] / numFon[unidad]
-    chkPathName(ficMod)
-    with open(ficMod, 'wb') as fpMod:
-        np.save(fpMod, modelo) # Guarda el model com a diccionari. Si les dades no son nd.array es poden utilitzar de manera maliciosa. Escriu sobre un fitxer binari obert de manera que no afegira el .npy
+        modelo.addPrm(prm, unidad)
+    # RECALCULEM el model
+    modelo.recaMod()
+    # MOSTREM per pantalla la "evolució" del entrenament
+    modelo.printEvo()
+    # ESCRIBIM el model generat
+    modelo.escMod(ficMod)
 
 
 if __name__ == '__main__':
