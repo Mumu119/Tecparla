@@ -23,7 +23,7 @@ from euclidio import Euclidi
 
 def entrena(dirPrm, dirMar, lisFon, ficMod, *figGui):
     # CONSTRUIM el model inicial.
-    modelo = Euclidi(lisFon)
+    modelo = Euclidi(lisFon=lisFon)
     # INICIALITZEM els diccionaris
     modelo.inicMod()
 

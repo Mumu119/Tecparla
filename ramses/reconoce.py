@@ -3,23 +3,17 @@
 import numpy as np
 from ramses.util import *
 from ramses.prm import *
-from tqdm import tqdm   
+from euclidio import Euclidi
+from tqdm import tqdm
+   
 
 def reconoce(dirRec, dirPrm, ficMod, *guiSen):
-    """
-    docstring
-    """
-
-    modelos = np.load(ficMod, allow_pickle=True).item() # Carrega el model de la ruta ficMod que es un diccionari per aixó és fa allow_pickle=True. .item() extreu l'element unic de l'array
+    # modelos = np.load(ficMod, allow_pickle=True).item() # Carrega el model de la ruta ficMod que es un diccionari per aixó és fa allow_pickle=True. .item() extreu l'element unic de l'array
+    modelos = Euclidi(ficMod=ficMod)
     for sen in tqdm(leeLis(*guiSen)):
         pathPrm = pathName(dirPrm, sen, 'prm')
         prm = leePrm(pathPrm)
-        minDist = np.inf 
-        for unidad in modelos:
-            distancia = np.sum((prm - modelos[unidad]) ** 2) # Calcula la distancia euclidiana entre el prm i el model
-            if distancia < minDist:
-                minDist = distancia
-                reconocida = unidad
+        reconocida, minDist = modelos(prm)
         pathRec = pathName(dirRec, sen, 'rec')
         chkPathName(pathRec)
         with open(pathRec, 'wt') as fpRec:
