@@ -3,13 +3,13 @@
 import numpy as np
 from ramses.util import *
 from ramses.prm import *
-from euclidio import Euclidi
+from gaussiano import Gaussia
 from tqdm import tqdm
    
 
 def reconoce(dirRec, dirPrm, ficMod, *guiSen):
     # modelos = np.load(ficMod, allow_pickle=True).item() # Carrega el model de la ruta ficMod que es un diccionari per aixó és fa allow_pickle=True. .item() extreu l'element unic de l'array
-    modelos = Euclidi(ficMod=ficMod)
+    modelos = Gaussia(ficMod=ficMod)
     for sen in tqdm(leeLis(*guiSen)):
         pathPrm = pathName(dirPrm, sen, 'prm')
         prm = leePrm(pathPrm)

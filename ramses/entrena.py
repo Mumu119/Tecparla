@@ -6,7 +6,7 @@ from util import *
 from prm import *
 from mar import *
 from tqdm import tqdm
-from euclidio import Euclidi
+from gaussiano import Gaussia
 
 # porto l'escut al pit
 # em protegeix el cor
@@ -23,7 +23,7 @@ from euclidio import Euclidi
 
 def entrena(dirPrm, dirMar, lisFon, ficMod, *figGui):
     # CONSTRUIM el model inicial.
-    modelo = Euclidi(lisFon=lisFon)
+    modelo = Gaussia(lisFon=lisFon)
     # INICIALITZEM els diccionaris
     modelo.inicMod()
 
